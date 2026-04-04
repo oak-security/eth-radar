@@ -1,0 +1,18 @@
+# ETH Radar Systemd Service
+# Copy to /etc/systemd/system/eth-radar.service
+
+[Unit]
+Description=ETH Radar - Ethereum Threat Intelligence Dashboard
+After=network.target
+
+[Service]
+Type=simple
+User=YOUR_USER_HERE
+Group=YOUR_GROUP_HERE
+WorkingDirectory=/path/to/eth-radar
+ExecStart=/usr/bin/python3 /path/to/eth-radar/dashboard-eth.py
+Restart=always
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target
